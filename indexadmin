@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard - Career, News & Gallery</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    /* Warna pastel lembut */
+    :root {
+      --color-bg: #f9f8f7;
+      --color-sidebar-bg: #e7d7f7;
+      --color-primary: #a29bfe;
+      --color-accent: #d6c8f7;
+      --color-text: #3d3d3d;
+      --color-btn-edit: #81c784;
+      --color-btn-delete: #ef9a9a;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Sidebar */
+    #sidebar {
+      min-height: 100vh;
+      background-color: var(--color-sidebar-bg);
+    }
+
+    #sidebar .nav-link {
+      color: var(--color-text);
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    #sidebar .nav-link.active,
+    #sidebar .nav-link:hover {
+      background-color: var(--color-primary);
+      color: white;
+      border-radius: 0.375rem;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    h2 {
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Table styles */
+    table thead {
+      background-color: var(--color-accent);
+    }
+
+    /* Buttons */
+    .btn-edit {
+      background-color: var(--color-btn-edit);
+      border: none;
+      color: white;
+    }
+
+    .btn-edit:hover {
+      background-color: #66bb6a;
+    }
+
+    .btn-delete {
+      background-color: var(--color-btn-delete);
+      border: none;
+      color: white;
+    }
+
+    .btn-delete:hover {
+      background-color: #e57373;
+    }
+
+    /* Form inputs */
+    .form-section {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 10px rgb(0 0 0 / 0.05);
+      margin-bottom: 2rem;
+    }
+
+    /* Gallery images */
+    .gallery-img {
+      border-radius: 0.5rem;
+      object-fit: cover;
+      height: 150px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="d-flex">
+    <nav
+      id="sidebar"
+      class="d-flex flex-column flex-shrink-0 p-3"
+      style="width: 250px"
+    >
+      <a
+        href="#"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
+      >
+        <span class="fs-4 fw-bold" style="color: var(--color-primary)"
+          >Admin Dashboard</span
+        >
+      </a>
+      <hr />
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a
+            href="#career"
+            class="nav-link active"
+            aria-current="page"
+            onclick="showSection('career')"
+            >Career</a
+          >
+        </li>
+        <li>
+          <a href="#news" class="nav-link" onclick="showSection('news')"
+            >News</a
+          >
+        </li>
+        <li>
+          <a href="#gallery" class="nav-link" onclick="showSection('gallery')"
+            >Gallery</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <main class="flex-grow-1">
+      <!-- Career Section -->
+      <section id="career-section">
+        <h2>Career Management</h2>
+
+        <div class="form-section">
+          <h3>Add New Career</h3>
+          <form id="career-form" onsubmit="addCareer(event)">
+            <div class="mb-3">
+              <label for="career-title" class="form-label">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="career-title"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="career-description" class="form-label"
+                >Description</label
+              >
+              <textarea
+                class="form-control"
+                id="career-description"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Career</button>
+          </form>
+        </div>
+
+        <h3>Career List</h3>
+        <table class="table table-hover" id="career-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th style="width: 140px;">Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- News Section -->
+      <section id="news-section" class="d-none">
+        <h2>News Management</h2>
+
+        <div class="form-section">
+          <h3>Add New News</h3>
+          <form id="news-form" onsubmit="addNews(event)">
+            <div class="mb-3">
+              <label for="news-title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="news-title" required />
+            </div>
+            <div class="mb-3">
+              <label for="news-content" class="form-label">Content</label>
+              <textarea
+                class="form-control"
+                id="news-content"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add News</button>
+          </form>
+        </div>
+
+        <h3>News List</h3>
+        <table class="table table-hover" id="news-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Content</th>
+              <th style="width: 140px;">Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- Gallery Section -->
+      <section id="gallery-section" class="d-none">
+        <h2>Gallery Management</h2>
+
+        <div class="form-section">
+          <h3>Add New Image</h3>
+          <form id="gallery-form" onsubmit="addGallery(event)">
+            <div class="mb-3">
+              <label for="gallery-title" class="form-label">Image Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="gallery-title"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="gallery-url" class="form-label">Image URL</label>
+              <input
+                type="url"
+                class="form-control"
+                id="gallery-url"
+                placeholder="https://source.unsplash.com/random/300x200"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Add Image</button>
+          </form>
+        </div>
+
+        <h3>Gallery List</h3>
+        <div class="row" id="gallery-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Sidebar navigation - show/hide sections
+    function showSection(section) {
+      ['career', 'news', 'gallery'].forEach((sec) => {
+        document.getElementById(sec + '-section').classList.add('d-none');
+        document
+          .querySelector(`#sidebar a[href="#${sec}"]`)
+          .classList.remove('active');
+      });
+      document.getElementById(section + '-section').classList.remove('d-none');
+      document.querySelector(`#sidebar a[href="#${section}"]`).classList.add('active');
+    }
+
+    // Career Data
+    let careerData = [];
+
+    function renderCareerTable() {
+      const tbody = document.querySelector('#career-table tbody');
+      tbody.innerHTML = '';
+      careerData.forEach((item, idx) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${item.title}</td>
+          <td>${item.description}</td>
+          <td>
+            <button class="btn btn-edit btn-sm me-2" onclick="editCareer(${idx})">Edit</button>
+            <button class="btn btn-delete btn-sm" onclick="deleteCareer(${idx})">Delete</button>
+          </td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function addCareer(event) {
+      event.preventDefault();
+      const title = document.getElementById('career-title').value.trim();
+      const description = document.getElementById('career-description').value.trim();
+      careerData.push({ title, description });
+      renderCareerTable();
+      event.target.reset();
+    }
+
+    function editCareer(index) {
+      const item = careerData[index];
+      const newTitle = prompt('Edit Career Title:', item.title);
+      if (newTitle === null) return;
+      const newDesc = prompt('Edit Career Description:', item.description);
+      if (newDesc === null) return;
+      careerData[index] = { title: newTitle, description: newDesc };
+      renderCareerTable();
+    }
+
+    function deleteCareer(index) {
+      if (confirm('Are you sure you want to delete this career?')) {
+        careerData.splice(index, 1);
+        renderCareerTable();
+      }
+    }
+
+    // News Data
+    let newsData = [];
+
+    function renderNewsTable() {
+      const tbody = document.querySelector('#news-table tbody');
+      tbody.innerHTML = '';
+      newsData.forEach((item, idx) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${item.title}</td>
+          <td>${item.content}</td>
+          <td>
+            <button class="btn btn-edit btn-sm me-2" onclick="editNews(${idx})">Edit</button>
+            <button class="btn btn-delete btn-sm" onclick="deleteNews(${idx})">Delete</button>
+          </td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function addNews(event) {
+      event.preventDefault();
+      const title = document.getElementById('news-title').value.trim();
+      const content = document.getElementById('news-content').value.trim();
+      newsData.push({ title, content });
+      renderNewsTable();
+      event.target.reset();
+    }
+
+    function editNews(index) {
+      const item = newsData[index];
+      const newTitle = prompt('Edit News Title:', item.title);
+      if (newTitle === null) return;
+      const newContent = prompt('Edit News Content:', item.content);
+      if (newContent === null) return;
+      newsData[index] = { title: newTitle, content: newContent };
+      renderNewsTable();
+    }
+
+    function deleteNews(index) {
+      if (confirm('Are you sure you want to delete this news?')) {
+        newsData.splice(index, 1);
+        renderNewsTable();
+      }
+    }
+
+    // Gallery Data
+    let galleryData = [];
+
+    function renderGallery() {
+      const galleryList = document.getElementById('gallery-list');
+      galleryList.innerHTML = '';
+      galleryData.forEach((item, idx) => {
+        const col = document.createElement('div');
+        col.className = 'col-md-4 mb-4';
+        col.innerHTML = `
+          <div class="card shadow-sm">
+            <img src="${item.url}" alt="${item.title}" class="gallery-img card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">${item.title}</h5>
+              <button class="btn btn-edit btn-sm me-2" onclick="editGallery(${idx})">Edit</button>
+              <button class="btn btn-delete btn-sm" onclick="deleteGallery(${idx})">Delete</button>
+            </div>
+          </div>`;
+        galleryList.appendChild(col);
+      });
+    }
+
+    function addGallery(event) {
+      event.preventDefault();
+      const title = document.getElementById('gallery-title').value.trim();
+      const url = document.getElementById('gallery-url').value.trim();
+      galleryData.push({ title, url });
+      renderGallery();
+      event.target.reset();
+    }
+
+    function editGallery(index) {
+      const item = galleryData[index];
+      const newTitle = prompt('Edit Image Title:', item.title);
+      if (newTitle === null) return;
+      const newUrl = prompt('Edit Image URL:', item.url);
+      if (newUrl === null) return;
+      galleryData[index] = { title: newTitle, url: newUrl };
+      renderGallery();
+    }
+
+    function deleteGallery(index) {
+      if (confirm('Are you sure you want to delete this image?')) {
+        galleryData.splice(index, 1);
+        renderGallery();
+      }
+    }
+  </script>
+</body>
+</html>
