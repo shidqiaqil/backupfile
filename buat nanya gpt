@@ -9,12 +9,49 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-papbZfzF6TiLPSIbK0TEidH6F3rdXiFKYqXU8fauO7pUz17NSkxOdHyOyJzQ9K2HZh0Xr+sXln9IIjN8q+9tEA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- External Style CSS -->
     <link href="static/css/style.css" rel="stylesheet" />
     <link href="static/css/career.css" rel="stylesheet" />
+
+    <style>
+        .modal-content {
+            background-color: #f1f8e9; /* Pastel green */
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .modal-header {
+            background-color: #81c784; /* Lighter pastel green */
+            border-bottom: none;
+            color: white;
+        }
+
+        .modal-footer {
+            background-color: #e8f5e9; /* Even lighter pastel green */
+        }
+
+        .btn-pastel {
+            background-color: #a5d6a7;
+            color: #fff;
+        }
+
+        .btn-pastel:hover {
+            background-color: #81c784;
+        }
+
+        .table th, .table td {
+            text-align: center;
+        }
+
+        .pagination .page-item .page-link {
+            color: #81c784;
+        }
+
+        .pagination .page-item .page-link:hover {
+            background-color: #a5d6a7;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -34,7 +71,6 @@
     <div id="content-wrapper" class="p-4">
         <header id="header" class="mb-4">
             <h1 class="mb-0">Career - List of Applicants</h1>
-
         </header>
 
         <main>
@@ -62,14 +98,40 @@
                             <td class="centered">5</td>
                             <td class="centered">3.4</td>
                             <td class="centered">
-                                <a class="btn btn-outline-primary btn-sm"><i class="bi bi-exclamation-circle"
-                                        title="Details"></i></a>
-                                <a href="" class="btn btn-outline-success btn-sm"><i class="bi bi-cloud-download"
-                                        title="Download CV"></i></a>
+                                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#applicantModal" onclick="showApplicantDetails('Samsul', 'Software Engineer', 38, 'S1', 5, 3.4)">
+                                    <i class="bi bi-exclamation-circle" title="Details"></i>
+                                </button>
+                                <a href="" class="btn btn-outline-success btn-sm">
+                                    <i class="bi bi-cloud-download" title="Download CV"></i>
+                                </a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+
+                <!-- Modal -->
+                <div class="modal fade" id="applicantModal" tabindex="-1" aria-labelledby="applicantModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="applicantModalLabel">Applicant Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p><strong>Name:</strong> <span id="applicantName">Samsul</span></p>
+                                <p><strong>Career Name:</strong> <span id="careerName">Software Engineer</span></p>
+                                <p><strong>Age:</strong> <span id="applicantAge">38</span></p>
+                                <p><strong>Last Education:</strong> <span id="applicantEducation">S1</span></p>
+                                <p><strong>Years of Experience:</strong> <span id="yearsOfExperience">5</span></p>
+                                <p><strong>GPA:</strong> <span id="applicantGPA">3.4</span></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-end">
                         <li class="page-item disabled">
@@ -91,21 +153,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        function toggleBadgeStatus(element) {
-            if (element.classList.contains('open')) {
-                element.classList.remove('open');
-                element.classList.add('closed');
-                element.textContent = 'Closed';
-                element.setAttribute('aria-label', 'Status Closed');
-            } else {
-                element.classList.remove('closed');
-                element.classList.add('open');
-                element.textContent = 'Open';
-                element.setAttribute('aria-label', 'Status Open');
-            }
-            // Tambahkan AJAX/fetch untuk update status ke backend jika perlu
+        function showApplicantDetails(name, career, age, education, experience, gpa) {
+            document.getElementById('applicantName').textContent = name;
+            document.getElementById('careerName').textContent = career;
+            document.getElementById('applicantAge').textContent = age;
+            document.getElementById('applicantEducation').textContent = education;
+            document.getElementById('yearsOfExperience').textContent = experience;
+            document.getElementById('applicantGPA').textContent = gpa;
         }
-
     </script>
 </body>
 
