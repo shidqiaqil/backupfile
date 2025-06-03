@@ -12,43 +12,45 @@
     <!-- External Style CSS -->
     <link href="static/css/style.css" rel="stylesheet" />
     <link href="static/css/career.css" rel="stylesheet" />
-
     <style>
-        .modal-content {
-            background-color: #f1f8e9; /* Pastel green */
-            border-radius: 15px;
+        /* Sidebar styles */
+        #sidebar {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
             padding: 20px;
+            background-color: #81c784; /* Pastel green */
         }
 
-        .modal-header {
-            background-color: #81c784; /* Lighter pastel green */
-            border-bottom: none;
+        .nav {
+            flex-grow: 1;
+        }
+
+        /* Adding the logout button to the bottom */
+        .logout-btn {
+            background-color: #ff7043; /* Pastel orange */
             color: white;
-        }
-
-        .modal-footer {
-            background-color: #e8f5e9; /* Even lighter pastel green */
-        }
-
-        .btn-pastel {
-            background-color: #a5d6a7;
-            color: #fff;
-        }
-
-        .btn-pastel:hover {
-            background-color: #81c784;
-        }
-
-        .table th, .table td {
+            font-weight: bold;
+            margin-top: auto; /* Pushes the button to the bottom */
+            border-radius: 5px;
             text-align: center;
         }
 
-        .pagination .page-item .page-link {
-            color: #81c784;
+        .logout-btn:hover {
+            background-color: #ff5722; /* Darker orange on hover */
+            cursor: pointer;
         }
 
-        .pagination .page-item .page-link:hover {
-            background-color: #a5d6a7;
+        .logout-btn i {
+            margin-right: 8px;
+        }
+
+        /* Sidebar list item active styles */
+        .nav-link.active {
+            background-color: #81c784; /* Lighter green for active link */
             color: white;
         }
     </style>
@@ -66,6 +68,11 @@
             <li><a href="csr.html" class="nav-link"><i class="bi bi-people"></i> CSR</a></li>
             <li><a href="gallery.html" class="nav-link"><i class="bi bi-card-image"></i> Gallery</a></li>
         </ul>
+
+        <!-- Logout button -->
+        <div class="logout-btn py-3" onclick="window.location.href='logout.html'">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </div>
     </nav>
 
     <div id="content-wrapper" class="p-4">
@@ -108,30 +115,9 @@
                         </tr>
                     </tbody>
                 </table>
+                <!-- Modal goes here (the same as before) -->
 
-                <!-- Modal -->
-                <div class="modal fade" id="applicantModal" tabindex="-1" aria-labelledby="applicantModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="applicantModalLabel">Applicant Details</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p><strong>Name:</strong> <span id="applicantName">Samsul</span></p>
-                                <p><strong>Career Name:</strong> <span id="careerName">Software Engineer</span></p>
-                                <p><strong>Age:</strong> <span id="applicantAge">38</span></p>
-                                <p><strong>Last Education:</strong> <span id="applicantEducation">S1</span></p>
-                                <p><strong>Years of Experience:</strong> <span id="yearsOfExperience">5</span></p>
-                                <p><strong>GPA:</strong> <span id="applicantGPA">3.4</span></p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Page navigation -->
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-end">
                         <li class="page-item disabled">
