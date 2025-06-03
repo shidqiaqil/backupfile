@@ -11,6 +11,71 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <!-- External Style CSS -->
   <link href="static/css/style.css" rel="stylesheet">
+  <style>
+    /* Sidebar styles */
+    #sidebar {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-header {
+      padding: 20px;
+      background-color: #81c784; /* Pastel green */
+    }
+
+    .nav {
+      flex-grow: 1;
+    }
+
+    /* Adding the logout button to the bottom */
+    .logout-btn {
+      background-color: #ff7043; /* Pastel orange */
+      color: white;
+      font-weight: bold;
+      margin-top: auto; /* Pushes the button to the bottom */
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .logout-btn:hover {
+      background-color: #ff5722; /* Darker orange on hover */
+      cursor: pointer;
+    }
+
+    .logout-btn i {
+      margin-right: 8px;
+    }
+
+    /* Sidebar list item active styles */
+    .nav-link.active {
+      background-color: #81c784; /* Lighter green for active link */
+      color: white;
+    }
+
+    /* Main content wrapper */
+    #content-wrapper {
+      margin-left: 250px;
+      padding: 30px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #f1f8e9; /* Pastel green */
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      position: relative;
+      margin-top: auto;
+    }
+
+    .footer-text {
+      color: #4caf50; /* Lighter green for the footer text */
+    }
+  </style>
 </head>
 
 <body>
@@ -28,7 +93,6 @@
     <div class="logout-btn py-3" onclick="window.location.href='logout.html'">
       <i class="bi bi-box-arrow-right"></i> Logout
     </div>
-
   </nav>
 
   <div id="content-wrapper">
@@ -141,6 +205,13 @@
       </div>
     </main>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-text">
+      &copy; 2025 Your Company. All rights reserved.
+    </div>
+  </footer>
 
   <!-- Bootstrap 5 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
