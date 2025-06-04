@@ -2,219 +2,94 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clean Pastel Admin Dashboard</title>
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-  <!-- External Style CSS -->
-  <link href="static/css/style.css" rel="stylesheet">
-  <style>
-    /* Sidebar styles */
-    #sidebar {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Career Page</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- External Style CSS -->
+    <link href="static/css/style.css" rel="stylesheet" />
+    <link href="static/css/inputcareer.css" rel="stylesheet">
 
-    .sidebar-header {
-      padding: 20px;
-      background-color: #81c784; /* Pastel green */
-    }
-
-    .nav {
-      flex-grow: 1;
-    }
-
-    /* Adding the logout button to the bottom */
-    .logout-btn {
-      background-color: #ff7043; /* Pastel orange */
-      color: white;
-      font-weight: bold;
-      margin-top: auto; /* Pushes the button to the bottom */
-      border-radius: 5px;
-      text-align: center;
-    }
-
-    .logout-btn:hover {
-      background-color: #ff5722; /* Darker orange on hover */
-      cursor: pointer;
-    }
-
-    .logout-btn i {
-      margin-right: 8px;
-    }
-
-    /* Sidebar list item active styles */
-    .nav-link.active {
-      background-color: #81c784; /* Lighter green for active link */
-      color: white;
-    }
-
-    /* Main content wrapper */
-    #content-wrapper {
-      margin-left: 250px;
-      padding: 30px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Footer styles */
-    footer {
-      background-color: #f1f8e9; /* Pastel green */
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
-      position: relative;
-      margin-top: auto;
-    }
-
-    .footer-text {
-      color: #4caf50; /* Lighter green for the footer text */
-    }
-  </style>
+    <!-- CKEditor -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 </head>
 
 <body>
-  <nav id="sidebar">
-    <div class="sidebar-header">
-      <img src="static/image/poscodx1.png" alt="Logo" style="width: 100%; height: auto; max-width: 100px;" />
-    </div>
-    <ul class="nav flex-column">
-      <li><a href="index.html" class="nav-link active"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-      <li><a href="career.html" class="nav-link"><i class="bi bi-briefcase"></i> Career</a></li>
-      <li><a href="news.html" class="nav-link"><i class="bi bi-newspaper"></i> News</a></li>
-      <li><a href="csr.html" class="nav-link"><i class="bi bi-people"></i> CSR</a></li>
-      <li><a href="gallery.html" class="nav-link"><i class="bi bi-card-image"></i> Gallery</a></li>
-    </ul>
-    <div class="logout-btn py-3" onclick="window.location.href='logout.html'">
-      <i class="bi bi-box-arrow-right"></i> Logout
-    </div>
-  </nav>
-
-  <div id="content-wrapper">
-    <header id="header">
-      <h1>Dashboard</h1>
-      <div>
-        <button type="button" class="btn btn-outline-secondary me-2">
-          <i class="bi bi-bell"></i> Notifications
-        </button>
-      </div>
-    </header>
-
-    <main>
-      <div class="container-fluid">
-        <div class="row g-4">
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title text-dark">Total Lowongan</h5>
-                <h2>1,234</h2>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title text-dark">Lowongan Aktif</h5>
-                <h2>$567</h2>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title text-dark">Total Pelamar</h5>
-                <h2>321</h2>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title text-dark">Lowongan Tutup</h5>
-                <h2>89</h2>
-              </div>
-            </div>
-          </div>
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <img src="static/image/poscodx1.png" alt="Logo" style="width: 100%; height: auto; max-width: 100px;" />
         </div>
-
-        <div class="row mt-5">
-          <div class="col-lg-8">
-            <div class="card">
-              <div class="card-header" style="background-color: var(--primary-color); color: #fff; font-weight: 600;">
-                Job Recruitment List
-              </div>
-              <div class="card-body p-0">
-                <table class="table mb-0">
-                  <thead>
-                    <tr>
-                      <th class="centered">No</th>
-                      <th class="centered">Job Title</th>
-                      <th class="centered">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="centered">1</td>
-                      <td class="centered">Software Engineer</td>
-                      <td class="centered"><span class="badge bg-success">Open</span></td>
-                    </tr>
-                    <tr>
-                      <td class="centered">1</td>
-                      <td class="centered">Software Engineer</td>
-                      <td class="centered"><span class="badge bg-danger">Closed</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="card">
-              <div class="card-header" style="background-color: var(--primary-color); color: #fff; font-weight: 600;">
-                Latest Applicants
-              </div>
-              <div class="card-body p-0">
-                <table class="table mb-0">
-                  <thead>
-                    <tr>
-                      <th class="centered">No</th>
-                      <th class="centered">Name</th>
-                      <th class="centered">Job title</th>
-                      <th class="centered">YoE</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="centered">1</td>
-                      <td class="centered">Samsul</td>
-                      <td class="centered">Software Engineer</td>
-                      <td class="centered">5</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+        <ul class="nav flex-column">
+            <li><a href="index.html" class="nav-link "><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+            <li><a href="career.html" class="nav-link active"><i class="bi bi-briefcase"></i> Career</a></li>
+            <li><a href="news.html" class="nav-link"><i class="bi bi-newspaper"></i> News</a></li>
+            <li><a href="csr.html" class="nav-link"><i class="bi bi-people"></i> CSR</a></li>
+            <li><a href="gallery.html" class="nav-link"><i class="bi bi-card-image"></i> Gallery</a></li>
+        </ul>
+        <div class="logout-btn py-3" onclick="window.location.href='logout.html'">
+            <i class="bi bi-box-arrow-right"></i> Logout
         </div>
-      </div>
-    </main>
-  </div>
+    </nav>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-text">
-      &copy; 2025 Your Company. All rights reserved.
+    <div id="content-wrapper">
+        <header id="header">
+            <h1>Career - Input Career</h1>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form id="careerForm">
+                            <div class="mb-3">
+                                <label for="jobTitle" class="form-label">Job Title</label>
+                                <input type="text" class="form-control" id="jobTitle" placeholder="Enter Job Title"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="jobDescription" class="form-label">Job Description</label>
+                                <textarea name="description" id="jobDescription" class="form-control"
+                                    rows="10"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Status</label>
+                                <select class="form-select" id="status" required>
+                                    <option value="open">Open</option>
+                                    <option value="closed">Closed</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-  </footer>
 
-  <!-- Bootstrap 5 JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- CKEditor Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            ClassicEditor
+                .create(document.querySelector('#jobDescription'), {
+                    toolbar: [
+                        'heading', '|',
+                        'bold', 'italic', 'link', '|',
+                        'bulletedList', 'numberedList', '|',
+                        'blockQuote', '|',
+                        'undo', 'redo'
+                    ]
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    </script>
 </body>
 
 </html>
