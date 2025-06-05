@@ -9,18 +9,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-papbZfzF6TiLPSIbK0TEidH6F3rdXiFKYqXU8fauO7pUz17NSkxOdHyOyJzQ9K2HZh0Xr+sXln9IIjN8q+9tEA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- External Style CSS -->
-    <link href="{{ asset('static/css/style.css') }}" rel="stylesheet" />
-    <link href="{{ asset('static/css/inputcareer.css') }}" rel="stylesheet">
-
-    <!-- CKEditor -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+    <link href="static/css/style.css" rel="stylesheet" />
+    <link href="static/css/career.css" rel="stylesheet" />
 </head>
 
 <body>
     <nav id="sidebar">
         <div class="sidebar-header">
-            <img src="{{ asset('static/image/poscodx1.png') }}" alt="Logo" style="width: 100%; height: auto; max-width: 100px;" />
+            <img src="static/image/poscodx1.png" alt="Logo" style="width: 100%; height: auto; max-width: 100px;" />
         </div>
         <ul class="nav flex-column">
             <li><a href="index.html" class="nav-link "><i class="bi bi-speedometer2"></i> Dashboard</a></li>
@@ -34,45 +34,50 @@
         </div>
     </nav>
 
-    <div id="content-wrapper">
-        <header id="header">
-            <h1>Career - Input Career</h1>
+    <div id="content-wrapper" class="p-4">
+        <header id="header" class="mb-4">
+            <h1 class="mb-0">Career - List of Careers</h1>
+
+            <a href="inputcareer.html" class="btn btn-pastel">
+                <i class="bi bi-plus-circle"></i> Add New Career
+            </a>
+
         </header>
 
         <main>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Form Career -->
-                        <form id="careerForm" method="POST" action="{{ route('career.store') }}">
-                            @csrf <!-- CSRF token untuk keamanan -->
-
-                            <!-- Form Job Title -->
-                            <div class="mb-3">
-                                <label for="jobTitle" class="form-label">Job Title</label>
-                                <input type="text" class="form-control" id="jobTitle" name="career_name" placeholder="Enter Job Title" required>
-                            </div>
-
-                            <!-- Form Job Description (CKEditor) -->
-                            <div class="mb-3">
-                                <label for="jobDescription" class="form-label">Job Description</label>
-                                <textarea name="career_desc" id="jobDescription" class="form-control" rows="10" required></textarea>
-                            </div>
-
-                            <!-- Form Job Status -->
-                            <div class="mb-3">
-                                <label for="status" class="form-label">Status</label>
-                                <select class="form-select" id="status" name="career_status" required>
-                                    <option value="open">Open</option>
-                                    <option value="closed">Closed</option>
-                                </select>
-                            </div>
-
-                            <!-- Submit Button -->
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                </div>
+            <div class="container-fluid p-0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="table-secondary">Job Title</th>
+                            <th class="centered table-secondary">Date Posted</th>
+                            <th class="centered table-secondary">Total Applicants</th>
+                            <th class="centered table-secondary">Status</th>
+                            <th class="centered table-secondary">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Software Engineer</td>
+                            <td class="centered">2023-06-01</td>
+                            <td class="centered"><a href="listapplicants.html" class="applicants-link">50</a></td>
+                            <td class="centered"><span class="badge bg-success">Open</span></td>
+                            <td class="centered">
+                                <a class="btn btn-outline-danger btn-sm" href="#" onclick="return confirmDelete()"><i
+                                        class="bi bi-trash"></i></a>
+                                <a href="updatecareer.html" class="btn btn-outline-warning btn-sm"><i
+                                        class="bi bi-pen"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Product Manager</td>
+                            <td class="centered">2023-05-25</td>
+                            <td class="centered"><a href="applicants-product-manager.html"
+                                    class="applicants-link">30</a></td>
+                            <td class="centered"><span class="badge bg-danger">Closed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>
@@ -80,23 +85,10 @@
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- CKEditor Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            ClassicEditor
-                .create(document.querySelector('#jobDescription'), {
-                    toolbar: [
-                        'heading', '|',
-                        'bold', 'italic', 'link', '|',
-                        'bulletedList', 'numberedList', '|',
-                        'blockQuote', '|',
-                        'undo', 'redo'
-                    ]
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        });
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this job posting?");
+        }
     </script>
 </body>
 
