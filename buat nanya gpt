@@ -52,11 +52,19 @@
                             <td class="centered">{{ $applicant->reg_gpa }}</td>
                             <td class="centered">{{ $applicant->reg_workxp }}</td>
                             <td class="centered">
-                                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="">
+                                <!-- Button to open modal with data attributes -->
+                                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#applicantModal"
+                                    data-firstname="{{ $applicant->reg_fname }}"
+                                    data-lastname="{{ $applicant->reg_lname }}"
+                                    data-career="{{ $applicant->career->career_name ?? 'N/A' }}"
+                                    data-age="{{ $applicant->reg_age }}"
+                                    data-gender="{{ $applicant->reg_gender }}"
+                                    data-education="{{ $applicant->reg_education }}"
+                                    data-workxp="{{ $applicant->reg_workxp }}"
+                                    data-gpa="{{ $applicant->reg_gpa }}">
                                     <i class="bi bi-exclamation-circle" title="Details"></i>
                                 </button>
-                                <a href="{{ asset('storage/' . $applicant->reg_file) }}"
-                                    class="btn btn-outline-success btn-sm">
+                                <a href="{{ asset('storage/' . $applicant->reg_file) }}" class="btn btn-outline-success btn-sm">
                                     <i class="bi bi-cloud-download" title="Download CV"></i>
                                 </a>
                             </td>
@@ -66,14 +74,12 @@
                 </table>
 
                 <!-- Modal for Applicant Details -->
-                <div class="modal fade" id="applicantModal" tabindex="-1" aria-labelledby="applicantModalLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="applicantModal" tabindex="-1" aria-labelledby="applicantModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="applicantModalLabel">Applicant Details</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <p><strong>First Name:</strong> <span id="applicantFirstName"></span></p>
@@ -113,29 +119,23 @@
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script>
+        // Mengambil tombol "Details" dan menambahkan event listener
+        document.querySelectorAll('.btn-outline-primary').forEach(button => {
+            button.addEventListener('click', function () {
+                // Mengambil data dari atribut data- pada tombol
+                document.getElementById('applicantFirstName').textContent = this.getAttribute('data-firstname');
+                document.getElementById('applicantLastName').textContent = this.getAttribute('data-lastname');
+                document.getElementById('careerName').textContent = this.getAttribute('data-career');
+                document.getElementById('applicantAge').textContent = this.getAttribute('data-age');
+                document.getElementById('applicantGender').textContent = this.getAttribute('data-gender');
+                document.getElementById('applicantEducation').textContent = this.getAttribute('data-education');
+                document.getElementById('yearsOfExperience').textContent = this.getAttribute('data-workxp');
+                document.getElementById('applicantGPA').textContent = this.getAttribute('data-gpa');
+            });
+        });
+    </script>
 
 </body>
 
 </html>
-
-
-
-
-
-<td><?= $data['reg_gender'] ; ?> </td>
-                                    <td><?= $data['reg_age'] ; ?> </td>
-                                    <td><?= $data['birth_date'] ; ?> </td>
-                                    <td><?= $data['reg_address'] ; ?> </td>
-                                    <td><?= $data['reg_city'] ; ?> </td>
-                                    <td><?= $data['reg_email'] ; ?> </td>
-                                    <td><?= $data['reg_phone'] ; ?> </td>
-                                    <td><?= $data['reg_education'] ; ?> </td>
-                                    <td><?= $data['reg_institute'] ; ?> </td>
-                                    <td><?= $data['reg_fieldstudy'] ; ?> </td>
-                                    <td><?= $data['reg_gradeyear'] ; ?> </td>
-                                    <td><?= $data['reg_gpa'] ; ?> </td>
-                                    <td><?= $data['reg_workxp'] ; ?> </td>
-                                    <td><?= $data['reg_industry'] ; ?> </td>
-                                    <td><?= $data['date']; ?></td> 
-                                    <td><?= $data['reg_file']; ?> </td>
-
