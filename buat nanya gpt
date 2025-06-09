@@ -30,36 +30,52 @@
                         <tr>
                             <th class="table-secondary">No</th>
                             <th class="centered table-secondary">Career Name</th>
-                            <th class="centered table-secondary">Name</th>
+                            <th class="centered table-secondary">First Name</th>
+                            <th class="centered table-secondary">Last Name</th>
+                            <th class="centered table-secondary">Gender</th>
                             <th class="centered table-secondary">Age</th>
-                            <th class="centered table-secondary">Last Education</th>
-                            <th class="centered table-secondary">Years of Experience</th>
+                            <th class="centered table-secondary">Education</th>
                             <th class="centered table-secondary">GPA</th>
+                            <th class="centered table-secondary">Years of Experience</th>
                             <th class="centered table-secondary">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td class="centered">Software Engineer</td>
-                            <td class="centered">Samsul</td>
-                            <td class="centered">38</td>
-                            <td class="centered">S1</td>
-                            <td class="centered">5</td>
-                            <td class="centered">3.4</td>
-                            <td class="centered">
-                                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#applicantModal"
-                                    onclick="showApplicantDetails('Samsul', 'Software Engineer', 38, 'S1', 5, 3.4)">
-                                    <i class="bi bi-exclamation-circle" title="Details"></i>
-                                </button>
-                                <a href="" class="btn btn-outline-success btn-sm">
-                                    <i class="bi bi-cloud-download" title="Download CV"></i>
-                                </a>
-                            </td>
-                        </tr>
+                        @foreach ($applicants as $index => $applicant)
+                            <tr>
+                                <td>{{ $index + 1 }}</td>
+                                <td class="centered">{{ $applicant->career_name }}</td>
+                                <td class="centered">{{ $applicant->reg_fname }}</td>
+                                <td class="centered">{{ $applicant->reg_lname }}</td>
+                                <td class="centered">{{ $applicant->reg_gender }}</td>
+                                <td class="centered">{{ $applicant->reg_age }}</td>
+                                <td class="centered">{{ $applicant->reg_education }}</td>
+                                <td class="centered">{{ $applicant->reg_gpa }}</td>
+                                <td class="centered">{{ $applicant->reg_workxp }}</td>
+                                <td class="centered">
+                                    <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#applicantModal"
+                                            onclick="showApplicantDetails(
+                                                '{{ $applicant->reg_fname }}',
+                                                '{{ $applicant->reg_lname }}',
+                                                '{{ $applicant->career_name }}',
+                                                '{{ $applicant->reg_age }}',
+                                                '{{ $applicant->reg_gender }}',
+                                                '{{ $applicant->reg_education }}',
+                                                '{{ $applicant->reg_workxp }}',
+                                                '{{ $applicant->reg_gpa }}'
+                                            )">
+                                        <i class="bi bi-exclamation-circle" title="Details"></i>
+                                    </button>
+                                    <a href="{{ asset('storage/' . $applicant->reg_file) }}" class="btn btn-outline-success btn-sm">
+                                        <i class="bi bi-cloud-download" title="Download CV"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
+
                 <!-- Modal goes here (the same as before) -->
 
                 <!-- Page navigation -->
@@ -84,10 +100,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        function showApplicantDetails(name, career, age, education, experience, gpa) {
-            document.getElementById('applicantName').textContent = name;
+        function showApplicantDetails(firstName, lastName, career, age, gender, education, experience, gpa) {
+            document.getElementById('applicantFirstName').textContent = firstName;
+            document.getElementById('applicantLastName').textContent = lastName;
             document.getElementById('careerName').textContent = career;
             document.getElementById('applicantAge').textContent = age;
+            document.getElementById('applicantGender').textContent = gender;
             document.getElementById('applicantEducation').textContent = education;
             document.getElementById('yearsOfExperience').textContent = experience;
             document.getElementById('applicantGPA').textContent = gpa;
@@ -96,31 +114,3 @@
 </body>
 
 </html>
-
-
-
-Schema::create('career_registration', function (Blueprint $table) {
-            $table->id();
-               $table->string('career_name', 150);
-               $table->string('reg_fname', 150);
-               $table->string('reg_lname', 150);
-               $table->string('reg_gender', 10);
-               $table->string('reg_age', 10);
-               $table->longText('reg_address');
-               $table->string('reg_city', 50);
-               $table->string('reg_phone', 15);
-               $table->string('reg_email', 100);
-               $table->string('reg_education', 50);
-               $table->string('reg_institute', 150);
-               $table->string('reg_fieldstudy', 100);
-               $table->string('reg_gradeyear', 20);
-               $table->string('reg_gpa', 10);
-               $table->string('reg_workxp', 50);
-               $table->string('reg_industry', 150);
-               $table->string('reg_file', 100);
-               $table->date('date');
-               $table->string('career_id', 11);
-               $table->date('birth_date')->nullable();
-               $table->string('place_birth', 150)->nullable();
-               $table->string('province', 150)->nullable();
-            $table->timestamps();
