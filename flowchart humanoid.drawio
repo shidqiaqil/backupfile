@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" version="28.2.1">
+  <diagram name="Page-1" id="8jMi4M6uQ84EfvGd64vn">
+    <mxGraphModel dx="1226" dy="1729" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-10" value="Flowchart" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250.00000000000045" y="-160" width="580" height="870" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-11" value="User" style="swimlane;startSize=20;html=1;" vertex="1" parent="hSVnOYeWCbjlOSOsSkRK-10">
+          <mxGeometry y="20" width="300" height="850" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-12" value="System" style="swimlane;startSize=20;html=1;" vertex="1" parent="hSVnOYeWCbjlOSOsSkRK-10">
+          <mxGeometry x="300" y="20" width="280" height="850" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="hSVnOYeWCbjlOSOsSkRK-12" source="hSVnOYeWCbjlOSOsSkRK-9" target="hSVnOYeWCbjlOSOsSkRK-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-9" value="Start" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="hSVnOYeWCbjlOSOsSkRK-12">
+          <mxGeometry x="-175" y="40" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="hSVnOYeWCbjlOSOsSkRK-12" source="hSVnOYeWCbjlOSOsSkRK-7" target="hSVnOYeWCbjlOSOsSkRK-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-7" value="Login to system" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="hSVnOYeWCbjlOSOsSkRK-12">
+          <mxGeometry x="-205.00000000000045" y="130" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-15" value="Click to generate account" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="hSVnOYeWCbjlOSOsSkRK-12">
+          <mxGeometry x="-205.00000000000045" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="hSVnOYeWCbjlOSOsSkRK-12" source="hSVnOYeWCbjlOSOsSkRK-23" target="hSVnOYeWCbjlOSOsSkRK-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-23" value="Choose social media to create account" style="rounded=0;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="hSVnOYeWCbjlOSOsSkRK-12">
+          <mxGeometry x="-230.00000000000045" y="340" width="170" height="42.5" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="hSVnOYeWCbjlOSOsSkRK-12" source="hSVnOYeWCbjlOSOsSkRK-25" target="hSVnOYeWCbjlOSOsSkRK-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-25" value="Email verification" style="rounded=0;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="hSVnOYeWCbjlOSOsSkRK-12">
+          <mxGeometry x="-230.00000000000045" y="410" width="170" height="42.5" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="hSVnOYeWCbjlOSOsSkRK-12" source="hSVnOYeWCbjlOSOsSkRK-27" target="hSVnOYeWCbjlOSOsSkRK-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-27" value="Choose the purpose of the social media account (campaign, like, comment ,etc)" style="rounded=0;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="hSVnOYeWCbjlOSOsSkRK-12">
+          <mxGeometry x="-230" y="480" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="hSVnOYeWCbjlOSOsSkRK-12" source="hSVnOYeWCbjlOSOsSkRK-31" target="hSVnOYeWCbjlOSOsSkRK-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-31" value="Choose strategy (Positive or Negative)" style="rounded=0;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="hSVnOYeWCbjlOSOsSkRK-12">
+          <mxGeometry x="-230" y="560" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-33" value="Fill in prompt based on sicial media usage needs" style="rounded=0;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="hSVnOYeWCbjlOSOsSkRK-12">
+          <mxGeometry x="-230" y="650" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-37" value="Create schedule to execute selected actions" style="rounded=0;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="hSVnOYeWCbjlOSOsSkRK-12">
+          <mxGeometry x="-230" y="740" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="hSVnOYeWCbjlOSOsSkRK-12" source="hSVnOYeWCbjlOSOsSkRK-15" target="hSVnOYeWCbjlOSOsSkRK-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="hSVnOYeWCbjlOSOsSkRK-12" source="hSVnOYeWCbjlOSOsSkRK-19" target="hSVnOYeWCbjlOSOsSkRK-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-19" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;System generate:&lt;/span&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;First Name&lt;/li&gt;&lt;li&gt;Last Name&lt;/li&gt;&lt;li&gt;Birth Date&lt;/li&gt;&lt;li&gt;Unique Username&lt;/li&gt;&lt;li&gt;etc&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="hSVnOYeWCbjlOSOsSkRK-12">
+          <mxGeometry x="50" y="192.5" width="170" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-21" value="Generate cookie and fingerprient" style="rounded=0;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="hSVnOYeWCbjlOSOsSkRK-12">
+          <mxGeometry x="50" y="340" width="170" height="42.5" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-35" value="Ai generates content based on provided prompt" style="rounded=0;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="hSVnOYeWCbjlOSOsSkRK-12">
+          <mxGeometry x="50" y="650" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="hSVnOYeWCbjlOSOsSkRK-12" source="hSVnOYeWCbjlOSOsSkRK-21" target="hSVnOYeWCbjlOSOsSkRK-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="hSVnOYeWCbjlOSOsSkRK-12" source="hSVnOYeWCbjlOSOsSkRK-33" target="hSVnOYeWCbjlOSOsSkRK-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hSVnOYeWCbjlOSOsSkRK-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="hSVnOYeWCbjlOSOsSkRK-12" source="hSVnOYeWCbjlOSOsSkRK-35" target="hSVnOYeWCbjlOSOsSkRK-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
