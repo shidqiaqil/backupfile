@@ -1,0 +1,75 @@
+Build a web application that automates social media account creation, campaign management, and content scheduling.
+The application should follow this flow system:
+
+1. Login System
+
+User authentication with email/username and password.
+
+
+
+2. Account Generation
+
+User inputs: First Name, Last Name, Date of Birth, Unique Username, Gender, Email Account.
+
+System generates a unique cookie and fingerprint for each account.
+
+
+
+3. Select Social Media Platform
+
+User chooses which social media platform to create an account for (Instagram, Facebook, X/Twitter, TikTok, YouTube).
+
+
+
+4. Account Creation Process
+
+The system automatically registers the account.
+
+Email verification step must be included.
+
+
+
+5. Define Account Usage
+
+User defines purpose (e.g., campaign, like, comment, repost, follow, share, join group, etc.).
+
+User selects strategy: positive or negative.
+
+User fills additional data for campaign or interaction needs.
+
+
+
+6. AI Content Generation
+
+AI generates content (text, image, video, GIF) based on provided input and strategy.
+
+
+
+7. Scheduling
+
+User creates a schedule for executing selected actions.
+
+Include calendar and time selection.
+
+
+
+8. Monitoring & Reporting Dashboard
+
+Display logs of executed actions.
+
+Show analytics of campaign performance.
+
+
+
+
+Requirements:
+
+Dashboard interface with clean navigation.
+
+Separate lanes for User actions and System processes.
+
+Support multi-platform automation.
+
+AI integration for content generation.
+
+Reporting module with charts and statistics.
