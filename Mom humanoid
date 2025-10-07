@@ -1,0 +1,54 @@
+malem gaes, berikut aku share MoM hari minggu kemarin. CMIIW yaa kalo ada yang kurang atau salah 🙏
+
+MoM Humanoid 
+Meeting 5 Oct 2025
+
+*Modul 1*
+* Flow saat bikin akun, misal bikin 1000 akun maka di backend bisa lebih dari itu karena ada kemungkinan gagal. Tapi hasil akhir akan tetap 1000 akun.
+* Tim Alam menyanggupi untuk membuat akun-akun sesuai dengan campaign atau brand (grouping) untuk meminimalisir penggunaan akun tersebut untuk beda client yang masih di industri yang sama.
+* Tim Alam hanya menyanggupi (pedenya) membuat total 1000 account (bisa 500 IG, 200 Tiktok, 300 twitter) per bulan saat go live. Takutnya kalau kebanyakan, IP dan server kita yang ke block.
+* Possibility Tim untuk generated akun secara manual di awal sebagai banking akun bisa dilakukan. Existing akun bisa digunakan. Di meta ada 1 akun utama untuk manage akun di bawahnya.
+* Creation account rencana 1 email bisa dipakai untuk beberapa akun, tapi untuk nama dan username random aja. untuk nama dan username diusahakan pakai nama Indo dan tidak ada penggunaan nomor atau nama yang alay. Rencana list email dan username ini nanti bisa di export dalam bentuk excel atau spreadsheet.
+* Kapasitas dalam generated account: untuk email, Tim Alam bisa menyanggupi pembuatan 1000-4000 email. Tapi untuk pembuatan akun di masing-masing platform ada limitasinya. Jadi, pembuatan 1 akun ke akun berikutnya ada jeda sekitar 20 menitan
+
+_next plan untuk modul 1:_
+* buat simulasi account creation ini maksimal berapa akun yang bisa di generated dalam 1 tahun atau waktu tertentu
+* Buat penjelasan kek smart proxy, limitasi platform secara detail sampai mana batasan-batasannya.
+* Bikin requirement bagaimana agar bisa import 1000 akun dari client (user, pass, email).
+
+
+*Modul 2*
+* Limitasi untuk setiap action sama seperti account creation. Setiap social media punya red limiter di satu IP yang sama. Untuk limit kuota per hari di 1 akun: IG max 20 comment, like follow sekitar 90-100, post max 10.
+* Untuk posting image or content konsepnya client bikin bank data untuk image atau postingan, nanti sistem yang akan bantu crawling dari bank data tersebut.
+* Possibility untuk menjalankan konten scheduling untuk 2 atau lebih campaign secara bersamaan belum bisa karena dianggapnya 1 IP atau device yang sama. Solusi bisa dikasih jeda, biar amannya 1-2 jam.
+* Kesalahan di tengah jalan bisa dicek mana aja yang error dan mana yang berhasil (nanti bisa ditambahkan di dashboard atau saat exporting).
+* Ada token sistem khususnya di IG, sistemnya kita daftarin token tsb ke meta, nanti dari situ akan mendapatkan API, dari API ada red limiter seperti di poin 1.
+
+_Next plan untuk modul 2:_
+* Minta detail limit kuota like, comment, follow, post secara lifetime
+* Masing-masing modul lebih di jelasin lagi requirement nya dapet berapa dari paket2 yang kita tawarkan
+
+
+*Modul 3*
+* Sistem open AI generator dia akan mencharge berdasarkan usage yang kita request (dalam bentuk token). si token itu ada harganya, dan si token bisa dipisah input dan output. Input adalah prompt yang kita bikin. Contoh: kita input “buatkan caption untuk konten A” dengan “buatkan 10 caption untuk konten A”. Sama-sama dapat 1 output tapi tokennya yang berbeda. Nanti token akan otomatis terhitung dari sistem.
+* Saat bikin prompt, sistem kerjanya yaitu: output dari AI masuk ke bank data, generated otomatis, setelah itu nanti dari admin yang akan kurasi manual. Kalo ada yang kurang sesuai, nanti dari admin yang edit sendiri.
+* AI yang digunakan yaitu ChatGPT 4.0. Kalo ada error atau trouble harapannya ada backup AI yang lain seperti Gemini. 
+* Tidak ada notifikasi terkait error pada AI yang digunakan, tapi since user nge-prompt dan gagal, artinya lagi ada trouble atau error.
+
+_Next plan untuk modul 3:_
+* Backup AI diperlukan untuk menghindari adanya trouble. Dibuatkan modul untuk mitigasi backup AI perbudget-an berapa (buat opsi)
+
+
+*Modul 4*
+* Harapan kedepan ada simple monitoring like, comment, post, follow datangnya dari akun yang mana aja. Berapa persen yang berhasil dan gagal dan dari akun yang mana aja. Informasi terkait akun mana aja yang masih aktif atau yang ke suspend. 
+* Buat report summary singkat excel /spreadsheet / pdf untuk bukti tayang ke client.
+* Belum ada backup terkait yang action gagal agar sesuai dengan jumlah yang kita inginkan (tapi bakal didiskusikan ulang di internal tim Alam)
+
+
+*Timeline*
+* Phase 1 possibility untuk develop progressing selain IG belum memungkinkan karena takutnya waktunya bakal keganggu (paling nanti dikasih update terkait platform yang lain di month 4 seperti apa, month 5 seperti apa, dll).
+* Phase 1 belum final tapi untuk fungsi-fungsinya udah bisa digunain (testing). Akses testing untuk domain atau IP dashboard sudah bisa user coba.
+
+_Next plan untuk timeline:_
+* Detailing tiap phase agar lebih transparansi.
+* Detailing gimana list task-nya agar transparan kenapa phase 1 hanya develop platform IG saja.
